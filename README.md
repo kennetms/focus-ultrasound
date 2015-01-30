@@ -28,9 +28,13 @@ The code that allows FOCUS to interact with MATLAB exists in the MEX directory. 
 
 Adding a New Method
 There are a few steps required to add a calculation method to FOCUS.
+
 1.	Add a virtual function to the transducer class, e.g. fnm_cw(). This method should return an unsigned int and should take no arguments. Any parameters used in the calculation should already be stored in the Transducer object or in an object it points to.
+
 2.	Define the behavior of this function for each transducer shape. If the calcualtion can not be performed for certain shapes, these classes should have return RETURN_NOT_IMPLEMENTED; as the body of the calculation function.
+
 3.	Place the argument-checking and output processing code in /MEX.
+
 4.	Add this file to the MATLAB_Build script so that it is compiled along with the rest of FOCUS.
 
 Encouraged Additional Steps
@@ -38,4 +42,5 @@ The following steps should be followed, but are not strictly required for any ne
 
 
 1.	Write some documentation according to the template in /Docs/Functions
+
 2.	Write a MATLAB script containing a typical use case for your code in the style of the existing examples
